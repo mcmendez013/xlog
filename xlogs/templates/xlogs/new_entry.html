@@ -1,0 +1,14 @@
+{% extends "xlogs/base.html" %}
+
+{% block content %}
+
+    <p><a href="{% url 'xlogs:category' category.id %}">{{ category }}</a></p>
+
+    <p> Add a new entry:</p>
+    <form action= "{% url 'xlogs:new_entry' category.id %}" method='post'>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button name='submit'>add entry</button>
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "xlogs/base.html" %}
+
+{% block content %}
+
+  <p>Categories</p>
+
+  <ul>
+	  {% for category in categories %}
+	    <li>
+		  <a href="{% url 'xlogs:category' category.id %}">{{ category }}</a>
+		  
+	    </li>
+	  {% empty %}
+
+	    <li> No categories have been added yet. </li>
+ 
+	  {% endfor %}
+  </ul>
+  <a href="{% url 'xlogs:new_cat' %}">Add a new category:</a> 
+
+{% endblock content %}
